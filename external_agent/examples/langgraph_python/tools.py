@@ -29,7 +29,6 @@ def langflow(search_phrase: str):
     # Request headers
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Bearer LANGFLOW-BEARER-TOKEN"  # Authentication key from environment variable'}
     }
 
     #print(search_phrase, "This is the INPUT for Langflow: ")
