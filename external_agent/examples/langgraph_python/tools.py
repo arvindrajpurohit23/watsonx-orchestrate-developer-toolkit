@@ -1,5 +1,6 @@
 from langchain_core.tools import tool
 from langchain_community.tools import DuckDuckGoSearchResults
+import requests
 
 @tool
 def web_search_duckduckgo(search_phrase: str):
