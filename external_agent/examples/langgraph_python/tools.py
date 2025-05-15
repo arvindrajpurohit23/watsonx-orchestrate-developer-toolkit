@@ -19,7 +19,7 @@ def news_search_duckduckgo(search_phrase: str):
 #def langflow(search_phrase: str) -> dict:
 def langflow(search_phrase: str):
     """Search recipes using langflow ."""
-    url = f"https://api.langflow.astra.datastax.com/XXXXXXXXXXXXXXXX"    # api url of langflow project
+    url = f"http://127.0.0.1:7862/api/v1/run/c1a75a15-dcd4-4478-9c1b-d43195ab7577"    # api url of langflow project
     # Request payload configuration
     payload = {
         "input_value": search_phrase ,  # The input value to be processed by the flow
