@@ -6,8 +6,10 @@ from fastapi import FastAPI, Header, Depends
 from fastapi.responses import JSONResponse, StreamingResponse
 from models import ChatCompletionRequest, ChatCompletionResponse, Choice, MessageResponse, DEFAULT_MODEL
 from security import get_current_user
-from tools import web_search_duckduckgo, news_search_duckduckgo
+from tools import web_search_duckduckgo, news_search_duckduckgo, langflow
 from llm_utils import get_llm_sync, get_llm_stream
+from dotenv import load_dotenv
+load_dotenv()
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -35,7 +37,7 @@ async def chat_completions(
     model = DEFAULT_MODEL
     if request.model:
         model = request.model
-    selected_tools = [web_search_duckduckgo, news_search_duckduckgo]
+    selected_tools = [web_search_duckduckgo, news_search_duckduckgo,langflow]
     if request.stream:
         return StreamingResponse(get_llm_stream(request.messages, model, thread_id, selected_tools), media_type="text/event-stream")
     else:
